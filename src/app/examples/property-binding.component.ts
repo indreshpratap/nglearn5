@@ -8,14 +8,44 @@ import { Component } from '@angular/core';
     templateUrl: './property-binding.component.html'
 })
 export class AppPropertyBindingComponent {
-    message = "Welcome, and this is interpolation";
-    total = 100;
-    uniqueid = "uni001";
+    message = "Welcome, to NG class";
+    description = "My description";
+    current_index = 0;
+
+    notes_status_cls = 'success';
+
+    cls_array=['success','display-inline'];
+
+    cls_obj={};
 
     constructor() {
-        // Changing the property and check the id of div and value of input will be changed on screen
+        this.setCondition();
+        
         setTimeout(() => {
-            this.uniqueid = "0009999";
-        }, 10000);
+            this.message = "Hi, changed after 2 seconds";
+
+            this.current_index = 22;
+            this.cls_array.push('border');
+
+            this.cls_array[0]='warning';
+
+        }, 4000);
+
+        setInterval(() => {
+            if (this.notes_status_cls === 'success') {
+                this.notes_status_cls = 'warning';
+            } else {
+                this.notes_status_cls = 'success';
+            }
+        }, 4000);
+
+    }
+
+    setCondition() {
+        this.cls_obj = {
+            'success':true,
+            'border':true,
+            'display-inline':false
+        };
     }
 }

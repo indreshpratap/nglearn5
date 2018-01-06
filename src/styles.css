@@ -2,3 +2,21 @@
 h1 {
     color: green;
 }
+
+.notes {
+    padding:5px;
+}
+.warning {
+    color:red;
+    background: tomato;
+}
+.success {
+    color:green;
+background: lightgreen;
+}
+.display-inline {
+    display: inline-block;
+}
+.border {
+    border: 2px solid black;
+}

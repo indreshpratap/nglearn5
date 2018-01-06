@@ -1,9 +1,28 @@
 <h3>Property Bindings & Inerpolation</h3>
 <!-- Interpolation -> {{}} -->
-{{ message }}
-<br> Total
-<b>{{ total }}</b> records founds.
+<b>{{ message }}</b>
 
-<div [id]="uniqueid">Example of property binding see code.</div>
-<input type="text" name="uni" [value]="uniqueid"> {{uniqueid}}
-<hr>
+<div>
+  {{message}}
+</div>
+
+
+{{ current_index }}
+<input [id]="notes_status_cls" type="text" [value]="current_index">
+
+<div id="" class="notes container" [ngClass]="notes_status_cls" [tabindex]="current_index">
+    Property binding
+</div>
+
+<div class="notes" [ngClass]="cls_array">
+    Array ng class binding
+</div>
+<br>
+<input type="checkbox" [(ngModel)]="cls_obj['success']"> Success
+<input type="checkbox" [(ngModel)]="cls_obj['border']"> Border
+<input type="checkbox" [(ngModel)]="cls_obj['display-inline']"> Display Inline
+
+<div class="notes" [ngClass]="cls_obj">
+    conditional classes
+</div>
+
