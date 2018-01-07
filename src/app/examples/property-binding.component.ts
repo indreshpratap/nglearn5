@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 /**
  * Example of inline template and css in component
+ *  Changed this file
  */
 
 @Component({
