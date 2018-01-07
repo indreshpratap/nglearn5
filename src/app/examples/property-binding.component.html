@@ -11,11 +11,11 @@
 <input [id]="notes_status_cls" type="text" [value]="current_index">
 
 <div id="" class="notes container" [ngClass]="notes_status_cls" [tabindex]="current_index">
-    Property binding
+  Property binding
 </div>
 
 <div class="notes" [ngClass]="cls_array">
-    Array ng class binding
+  Array ng class binding
 </div>
 <br>
 <input type="checkbox" [(ngModel)]="cls_obj['success']"> Success
@@ -23,6 +23,24 @@
 <input type="checkbox" [(ngModel)]="cls_obj['display-inline']"> Display Inline
 
 <div class="notes" [ngClass]="cls_obj">
-    conditional classes
+  conditional classes
 </div>
 
+<div class="notes" [class.border]="cls_obj['border']" [class.success]="cls_obj['success']">
+  Example of class with name
+</div>
+
+<h3>
+  NG Style example
+</h3>
+
+<input type="text" [(ngModel)]="styleKey" placeholder="key">
+<input type="text" [(ngModel)]="styleValue" placeholder="value">
+<button (click)="addStyle()">Add Style</button>
+
+<div class="notes" style="font-weight:bold" [ngStyle]="custom_style">
+  Styles applied
+  <pre>
+        {{customStyleString}}
+    </pre>
+</div>

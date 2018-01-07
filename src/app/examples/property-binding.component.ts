@@ -12,23 +12,28 @@ export class AppPropertyBindingComponent {
     message = "Welcome, to NG class";
     description = "My description";
     current_index = 0;
-
     notes_status_cls = 'success';
+    cls_array = ['success', 'display-inline'];
+    cls_obj = {};
 
-    cls_array=['success','display-inline'];
+    custom_style = JSON.parse('{"border":"1px solid","font-size":"12px"}');
+    styleKey;
+    styleValue;
 
-    cls_obj={};
+    customStyleString;
+
+
 
     constructor() {
         this.setCondition();
-        
+
         setTimeout(() => {
             this.message = "Hi, changed after 2 seconds";
 
             this.current_index = 22;
             this.cls_array.push('border');
 
-            this.cls_array[0]='warning';
+            this.cls_array[0] = 'warning';
 
         }, 4000);
 
@@ -44,9 +49,17 @@ export class AppPropertyBindingComponent {
 
     setCondition() {
         this.cls_obj = {
-            'success':true,
-            'border':true,
-            'display-inline':false
+            'success': true,
+            'border': true,
+            'display-inline': false
         };
+    }
+    addStyle() {
+        this.custom_style[this.styleKey]=this.styleValue;
+        this.styleKey='';
+        this.styleValue='';
+
+        this.customStyleString = JSON.stringify(this.custom_style);
+        
     }
 }

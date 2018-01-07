@@ -5,13 +5,15 @@ import {FormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AppHeaderComponent } from './header.component';
 import { AppPropertyBindingComponent } from './examples/property-binding.component';
+import { EventBindingComponent } from './examples/event-binding.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AppHeaderComponent,
-    AppPropertyBindingComponent
+    AppPropertyBindingComponent,
+    EventBindingComponent
   ],
   imports: [
     BrowserModule,
