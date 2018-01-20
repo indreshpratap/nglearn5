@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { AppHeaderComponent } from './header.component';
 import { AppPropertyBindingComponent } from './examples/property-binding.component';
 import { EventBindingComponent } from './examples/event-binding.component';
+import { LoopComponent } from './examples/loop.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { EventBindingComponent } from './examples/event-binding.component';
     AppComponent,
     AppHeaderComponent,
     AppPropertyBindingComponent,
-    EventBindingComponent
+    EventBindingComponent,
+    LoopComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,49 @@
+<div class="container">
+  <!-- {{todoItem}} -->
+  <input placeholder="Inuput Todo" type="text" [(ngModel)]="todoItem" />
+  <button (click)="addItem()">Add</button>
+
+  <div>
+    <!-- <ul>
+      <li *ngFor="let todo of todos">
+          {{ todo }}
+      </li>
+    </ul> -->
+    <h4>Active Todos</h4>
+    <table>
+      <tbody>
+        <tr *ngFor="let todo of todos;let indx = index;let odd = odd,let even = even;let first=first;let last=last" [class.first]="first"
+          [class.last]="last" [class.odd]="odd" [class.even]="even">
+          <td>{{ todo }}</td>
+          <td>
+            <button (click)="markDone(indx,todo)">Done</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h4>Completed Todos</h4>
+    <table>
+      <tbody>
+        <tr *ngFor="let todo of completedTodos;let indx = index">
+          <td>{{ todo }}</td>
+          <td>
+            <button (click)="deleteTodo(indx)">X</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Object based TODO</h3>
+    <table>
+      <tbody>
+        <tr *ngFor="let item of todoObj;let indx = index" >
+          <td [class.done]="item.done">{{ item.todo }}</td>
+          <td>
+              <!-- {{item.done}} -->
+        <input type="checkbox" [(ngModel)]="item.done">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
