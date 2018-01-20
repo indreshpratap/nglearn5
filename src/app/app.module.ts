@@ -7,6 +7,7 @@ import { AppHeaderComponent } from './header.component';
 import { AppPropertyBindingComponent } from './examples/property-binding.component';
 import { EventBindingComponent } from './examples/event-binding.component';
 import { LoopComponent } from './examples/loop.component';
+import { IfSwitchComponent } from './examples/if-switch.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { LoopComponent } from './examples/loop.component';
     AppHeaderComponent,
     AppPropertyBindingComponent,
     EventBindingComponent,
-    LoopComponent
+    LoopComponent,
+    IfSwitchComponent
   ],
   imports: [
     BrowserModule,

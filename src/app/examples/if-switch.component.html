@@ -1,0 +1,38 @@
+<h5>If And Switch Case</h5>
+
+<div class="" *ngIf="formSaved">
+  Your account created successfully.
+</div>
+
+<div *ngIf="!formSaved">
+  Please click on save button to save the form.
+</div>
+
+<div [class.hide]="!formSaved">
+  Controlling visibility by css
+</div>
+
+<button (click)="doSave()"> Save</button>
+<button (click)="changeState()"> {{ formSaved ? 'Hide' : 'Show' }}</button>
+
+<div>
+    <!-- Controlling the ngIf with expression  with && also -->
+  <div *ngIf="step>0 && step<=7">
+    Current step value is : {{step}}
+  </div>
+
+  <hr>
+  <div [ngSwitch]="step">
+    <div *ngSwitchCase="1">Enter Name<input type="text"></div>
+    <div *ngSwitchCase="2">Enter Address<input type="text"></div>
+    <div *ngSwitchCase="3">Enter Email<input type="text"></div>
+    <div *ngSwitchCase="4">Enter Mobile<input type="text"></div>
+    <div *ngSwitchCase="5">Enter Landmark<input type="text"></div>
+    <div *ngSwitchCase="6">Enter Gender<input type="text"></div>
+    <div *ngSwitchCase="7">Enter Status<input type="text"></div>
+    <!-- <div *ngSwitchDefault>A default block</div> -->
+  </div>
+  <button [disabled]="step===1"  (click)="prev()">Prev</button>
+  <button [disabled]="step===7"  (click)="next()">Next</button>
+  <button *ngIf="step===7"  >Save the details</button>
+</div>
