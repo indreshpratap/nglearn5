@@ -8,6 +8,8 @@ import { AppPropertyBindingComponent } from './examples/property-binding.compone
 import { EventBindingComponent } from './examples/event-binding.component';
 import { LoopComponent } from './examples/loop.component';
 import { IfSwitchComponent } from './examples/if-switch.component';
+import { NotesComponent } from './communication/notes.component';
+import { NoteDetailsComponent } from './communication/note-details.component';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { IfSwitchComponent } from './examples/if-switch.component';
     AppPropertyBindingComponent,
     EventBindingComponent,
     LoopComponent,
-    IfSwitchComponent
+    IfSwitchComponent,
+    NotesComponent,
+    NoteDetailsComponent
   ],
   imports: [
     BrowserModule,

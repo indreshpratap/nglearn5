@@ -1,0 +1,25 @@
+<h3>My notes</h3>
+<div class="container">
+  <div class="columns">
+    <div class="column col-6">
+      <h4>Pending Notes</h4>
+      <div *ngFor="let mn of mynotes;let i=index">
+       <!-- <app-note-details [details]="mn.title"></app-note-details> -->
+       <app-note-details details="Pending notes" [note]="mn"></app-note-details>
+        <button (click)="markDone(i)">Mark Done</button>
+      <hr>
+      </div>
+
+    </div>
+    <div class="column col-6">
+      <h4>Completed Notes</h4>
+      <div *ngFor="let cn of completedNotes;let i=index">
+            <!-- <app-note-details [details]="cn.description"></app-note-details> -->
+            <app-note-details details="Completed notes" [note]="cn"></app-note-details>
+            <hr>
+      </div>
+
+    </div>
+  </div>
+</div>
+
