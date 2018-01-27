@@ -5,3 +5,5 @@
 </div>
 
 {{details}}
+<button *ngIf="!hideMark" (click)="onMarkClick()">Mark Done</button>
+<button (click)="onMarkDelete()">Delete</button>

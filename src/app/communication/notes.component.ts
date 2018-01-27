@@ -32,4 +32,12 @@ export class NotesComponent {
     // removing from my notes
     this.mynotes.splice(indx, 1);
   }
+
+  deleteFromPending(indx) {
+    this.mynotes.splice(indx,1);
+  }
+
+  deleteFromComplete(indx) {
+    this.completedNotes.splice(indx,1);
+  }
 }
