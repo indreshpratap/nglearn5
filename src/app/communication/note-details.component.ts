@@ -1,12 +1,20 @@
-import { Component, OnInit, Input, EventEmitter, Output, OnDestroy } from "@angular/core";
-
+import {
+  Component,
+  OnInit,
+  Input,
+  EventEmitter,
+  Output,
+  OnDestroy,
+  SimpleChanges
+} from "@angular/core";
+import { OnChanges } from "@angular/core/src/metadata/lifecycle_hooks";
 
 @Component({
   selector: "app-note-details",
   templateUrl: "./note-details.component.html"
   // styleUrls: ['./name.component.scss']
 })
-export class NoteDetailsComponent implements OnInit, OnDestroy{
+export class NoteDetailsComponent implements OnInit, OnDestroy, OnChanges {
   @Input() note: any;
   @Input() indx: number;
   @Input() details: any;
@@ -15,14 +23,26 @@ export class NoteDetailsComponent implements OnInit, OnDestroy{
   @Output() onMark: EventEmitter<any> = new EventEmitter<any>();
   @Output() onDelete: EventEmitter<any> = new EventEmitter<any>();
   constructor() {
-    console.log("NoteDetails constructor: ",this.markDoneTimeout);
+    console.log("NoteDetails constructor: ", this.markDoneTimeout);
   }
 
-  // ngOnChanges(){
-  //   console.log("ng on changes");
-  // }
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.details) {
+      if(changes.details.firstChange){
+        console.log("First change: ", changes.details);
+
+      }else {
+        console.log("You have changed the details and it is: ", changes.details);
+      }
+
+    }
+    if(changes.note) {
+      this.note = {...changes.note.currentValue};
+      console.log("Change in notes",changes.note);
+    }
+  }
   ngOnInit() {
-    console.log("Ng OnInit",this.markDoneTimeout);
+    console.log("Ng OnInit", this.markDoneTimeout);
     if (this.markDoneTimeout) {
       this.activateTimerForMarkDone();
     }
@@ -33,6 +53,7 @@ export class NoteDetailsComponent implements OnInit, OnDestroy{
 
   onMarkClick() {
     console.log("clicked inside details");
+    this.note.title="Changed inside details";
     this.onMark.emit(this.indx);
   }
   onMarkDelete() {

@@ -3,6 +3,19 @@
   <div class="columns">
     <div class="column col-6">
       <h4>Pending Notes</h4>
+      <input [(ngModel)]="detailsInput">
+      Printing at root level    {{singlenote.title}}
+<button (click)="changeFirstNoteDataOnly()">Change first note data only</button>
+<button (click)="changeFirstNoteObject()">Change first note object</button>
+      <app-note-details
+      [indx]="0"
+      [details]="detailsInput"
+      [note]="singlenote"
+      ></app-note-details>
+ 
+    <hr>
+    <hr>
+    <hr>
       <div *ngFor="let mn of mynotes;let i=index">
         <!-- <app-note-details [details]="mn.title"></app-note-details> -->
         <app-note-details
@@ -11,9 +24,9 @@
          [indx]="i"
          details="Pending notes"
          [note]="mn"
-         [markDoneTimeout]="(i+1)*5000"
-        ></app-note-details>
-        <hr>
+         ></app-note-details>
+         <!-- [markDoneTimeout]="(i+1)*5000" -->
+         <hr>
       </div>
 
     </div>

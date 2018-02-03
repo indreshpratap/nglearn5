@@ -8,6 +8,12 @@ import { Component, OnInit } from "@angular/core";
 export class NotesComponent {
   mynotes = [];
   completedNotes = [];
+  detailsInput;
+  singlenote = {
+    title:"First title",
+    description:  "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non error "
+   
+};
 
   constructor() {
     this.mynotes = [
@@ -39,5 +45,18 @@ export class NotesComponent {
 
   deleteFromComplete(indx) {
     this.completedNotes.splice(indx,1);
+  }
+
+  changeFirstNoteDataOnly() {
+    this.singlenote.title = "Revised First title";
+  }
+  changeFirstNoteObject() {
+    this.singlenote = {
+       title:"Revised First title",
+       description:  "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non error "
+  };
+  }
+   copyofsinglenote() {
+    return {...this.singlenote};
   }
 }
