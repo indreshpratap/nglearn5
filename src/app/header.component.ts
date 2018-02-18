@@ -13,5 +13,7 @@ template:`<header>
 styles:['h1 { color:blue}']
 })
 export class AppHeaderComponent {
-
+    getData() {
+        return "sending data from app header component";
+    }
 }

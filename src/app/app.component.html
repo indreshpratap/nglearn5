@@ -1,6 +1,15 @@
 <!-- Adding custom create header component -->
 <app-header></app-header>
-<h2>Examples</h2>
+<h2 #h2ref>Examples</h2>
+{{h2ref}}
+<span #spanref>this is span</span>
+{{spanref}}
+
+<input type="text" value="this is value" #myinput>
+{{myinput}}
+
+<button (click)="processInputData(myinput)">Process input</button>
+<button (click)="testInputViewChild()">Test @ViewChild input</button>
 <!-- <app-property-binding></app-property-binding> -->
 
 <!-- <app-event-binding></app-event-binding>    -->
@@ -8,4 +17,4 @@
 <!-- <app-looping></app-looping> -->
 <!-- <app-if-switch></app-if-switch> -->
 
-<app-notes></app-notes>
+<!-- <app-notes></app-notes> -->

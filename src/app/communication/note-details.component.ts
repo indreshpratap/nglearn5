@@ -5,16 +5,23 @@ import {
   EventEmitter,
   Output,
   OnDestroy,
-  SimpleChanges
+  SimpleChanges,
+  OnChanges,
+  AfterContentInit,
+  AfterViewInit,
+  AfterContentChecked,
+  AfterViewChecked,
+  DoCheck
 } from "@angular/core";
-import { OnChanges } from "@angular/core/src/metadata/lifecycle_hooks";
 
 @Component({
   selector: "app-note-details",
   templateUrl: "./note-details.component.html"
   // styleUrls: ['./name.component.scss']
 })
-export class NoteDetailsComponent implements OnInit, OnDestroy, OnChanges {
+export class NoteDetailsComponent implements OnInit, OnDestroy, OnChanges,AfterContentInit,AfterViewInit,AfterContentChecked,AfterViewChecked,DoCheck {
+ 
+ 
   @Input() note: any;
   @Input() indx: number;
   @Input() details: any;
@@ -28,17 +35,18 @@ export class NoteDetailsComponent implements OnInit, OnDestroy, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.details) {
-      if(changes.details.firstChange){
+      if (changes.details.firstChange) {
         console.log("First change: ", changes.details);
-
-      }else {
-        console.log("You have changed the details and it is: ", changes.details);
+      } else {
+        console.log(
+          "You have changed the details and it is: ",
+          changes.details
+        );
       }
-
     }
-    if(changes.note) {
-      this.note = {...changes.note.currentValue};
-      console.log("Change in notes",changes.note);
+    if (changes.note) {
+      this.note = { ...changes.note.currentValue };
+      console.log("Change in notes", changes.note);
     }
   }
   ngOnInit() {
@@ -47,13 +55,30 @@ export class NoteDetailsComponent implements OnInit, OnDestroy, OnChanges {
       this.activateTimerForMarkDone();
     }
   }
+
+  ngAfterContentInit(): void {
+   console.log("Ng After content init");
+  }
+  ngAfterViewInit(): void {
+   console.log("Ng After view init");
+  }
+
+  ngAfterContentChecked(): void {
+    console.log("ngAfterContentChecked");
+  }
+  ngAfterViewChecked(): void {
+    console.log("ngAfterViewChecked");
+  }
+  ngDoCheck(): void {
+    console.log("ngDoCheck");
+  }
   ngOnDestroy() {
     console.log("Ng On destroy");
   }
 
   onMarkClick() {
     console.log("clicked inside details");
-    this.note.title="Changed inside details";
+    this.note.title = "Changed inside details";
     this.onMark.emit(this.indx);
   }
   onMarkDelete() {
