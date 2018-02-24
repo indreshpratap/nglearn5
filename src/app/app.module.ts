@@ -10,6 +10,7 @@ import { LoopComponent } from './examples/loop.component';
 import { IfSwitchComponent } from './examples/if-switch.component';
 import { NotesComponent } from './communication/notes.component';
 import { NoteDetailsComponent } from './communication/note-details.component';
+import { HighlightDirective } from './highlight.directive';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { NoteDetailsComponent } from './communication/note-details.component';
     LoopComponent,
     IfSwitchComponent,
     NotesComponent,
-    NoteDetailsComponent
+    NoteDetailsComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
