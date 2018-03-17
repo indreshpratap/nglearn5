@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
+import {RouterModule} from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { AppHeaderComponent } from './header.component';
@@ -11,7 +12,14 @@ import { IfSwitchComponent } from './examples/if-switch.component';
 import { NotesComponent } from './communication/notes.component';
 import { NoteDetailsComponent } from './communication/note-details.component';
 import { HighlightDirective } from './highlight.directive';
+import {LoginComponent} from './attendance/login/login.component';
+import { UserDashboardComponent } from './attendance/user-dashboard/user-dashboard.component';
 
+var routes = [
+  {path:'login',component:LoginComponent},
+  {path:'user-dashboard',component:UserDashboardComponent}
+
+];
 
 @NgModule({
   declarations: [
@@ -23,11 +31,14 @@ import { HighlightDirective } from './highlight.directive';
     IfSwitchComponent,
     NotesComponent,
     NoteDetailsComponent,
-    HighlightDirective
+    HighlightDirective,
+    LoginComponent,
+    UserDashboardComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

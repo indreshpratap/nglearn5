@@ -7,6 +7,8 @@ import {Component} from '@angular/core';
 selector:"app-header",
 template:`<header>
             <h1>Application header </h1>
+            <a routerLink="login">Login</a>
+            <a routerLink="user-dashboard">User Dashboard</a>
             <hr>
         </header>
 `,
