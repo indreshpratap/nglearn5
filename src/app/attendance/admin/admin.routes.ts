@@ -4,7 +4,7 @@ import { AdmDashComponent } from "./adm-dash/adm-dash.component";
 
 export const adminRoutes: Routes = [
   {
-    path: "xyz",
+    path: "",
     component: AdmHomeComponent,
     children: [{ path: "dashboard", component: AdmDashComponent }]
   }
