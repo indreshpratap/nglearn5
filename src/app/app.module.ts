@@ -16,6 +16,7 @@ import { LoginComponent } from "./attendance/login/login.component";
 import { UserDashboardComponent } from "./attendance/user-dashboard/user-dashboard.component";
 import { AttendanceAppComponent } from "./attendance/app/app.component";
 import { AdminModule } from "./attendance/admin/admin.module";
+import { SharedModule } from "./attendance/shared/shared.module";
 
 var routes: Routes = [
   { path: "", component: LoginComponent },
@@ -37,7 +38,6 @@ var routes: Routes = [
     IfSwitchComponent,
     NotesComponent,
     NoteDetailsComponent,
-    HighlightDirective,
     LoginComponent,
     UserDashboardComponent,
     AttendanceAppComponent
@@ -45,6 +45,7 @@ var routes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    SharedModule,
     RouterModule.forRoot(routes)
     //  AdminModule  //Eager loading of feature modules
   ],
@@ -52,3 +53,9 @@ var routes: Routes = [
   bootstrap: [AttendanceAppComponent]
 })
 export class AppModule {}
+
+export var test="";
+
+export function hello(){
+
+}

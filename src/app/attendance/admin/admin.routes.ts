@@ -1,4 +1,4 @@
-import { Routes } from "@angular/router";
+import { Routes, Route } from "@angular/router";
 import { AdmHomeComponent } from "./adm-home/adm-home.component";
 import { AdmDashComponent } from "./adm-dash/adm-dash.component";
 
