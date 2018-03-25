@@ -1,5 +1,25 @@
-<p>
-  login works!
-</p>
+<div class="ui-g login-form">
 
-<a routerLink="/admin">Go to Admin</a>
+  <div class="ui-g-12 ui-md-3 ui-md-offset-4">
+    <p-card title="Login">
+      <div>
+
+        <span class="ui-float-label">
+          <input id="username" type="text" [(ngModel)]="username" size="30" pInputText>
+          <label for="username">Username</label>
+        </span>
+      </div>
+      <div>
+        <span class="ui-float-label">
+          <input id="password" type="password" [(ngModel)]="password" size="30" pInputText>
+          <label for="username">Password</label>
+        </span>
+      </div>
+
+      <p-footer>
+        <button pButton type="button" label="Login" icon="fa-check" (click)="doLogin()"></button>
+
+      </p-footer>
+    </p-card>
+  </div>
+</div>

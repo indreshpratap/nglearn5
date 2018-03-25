@@ -1,5 +1,13 @@
 <p [highlight]="'yellow'">
   adm-home works!
 </p>
+<input [(ngModel)]="form"> 
+{{form}}
+
+<p-calendar [(ngModel)]="form"></p-calendar>
+
+<div *ngIf="form">
+  ok you filled the input
+</div>
 <a routerLink="dashboard">Dashboard</a>
 <router-outlet></router-outlet>

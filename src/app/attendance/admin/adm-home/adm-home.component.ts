@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdmHomeComponent implements OnInit {
 
+  form;
   constructor() { }
 
   ngOnInit() {
