@@ -1,25 +1,41 @@
 <div class="ui-g login-form">
 
   <div class="ui-g-12 ui-md-3 ui-md-offset-4">
+    <form  #loginform="ngForm">
     <p-card title="Login">
       <div>
 
         <span class="ui-float-label">
-          <input id="username" type="text" [(ngModel)]="username" size="30" pInputText>
+          <!-- Two way binding -->
+          <!-- <input name="username" required id="username" type="text" [(ngModel)]="username" size="30" pInputText> -->
+          <input name="username" required id="username" type="text" [ngModel]="username" size="30" pInputText>
           <label for="username">Username</label>
         </span>
+        <span *ngIf="loginform.controls['username']?.errors?.required">Username Required</span>
       </div>
       <div>
         <span class="ui-float-label">
-          <input id="password" type="password" [(ngModel)]="password" size="30" pInputText>
+          <!-- <input name="pwd" id="password" required minlength="6" type="password" [(ngModel)]="password" size="30" pInputText> -->
+          <input name="pwd" id="password" required minlength="6" type="password" ngModel size="30" pInputText>
           <label for="username">Password</label>
         </span>
+        <span *ngIf="loginform.controls['pwd']?.errors?.required">Password Required</span>
+        <span *ngIf="loginform.controls['pwd']?.errors?.minlength">Minimum length is 6</span>
       </div>
 
       <p-footer>
-        <button pButton type="button" label="Login" icon="fa-check" (click)="doLogin()"></button>
+        <button pButton  type="button" label="Login" icon="fa-check" (click)="doLogin(loginform)"></button>
+<pre>
+  {{loginform.value|json}}
 
+ Username: {{username}} && Password :{{password}}
+</pre>
       </p-footer>
     </p-card>
+
+    <pre>
+     
+    </pre>
+    </form>
   </div>
 </div>

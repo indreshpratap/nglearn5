@@ -7,11 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent  {
 
-  username:string;
+  username:string="demo";
   password:string;
 
-  doLogin(){
-    console.log(this.username,this.password);
+  doLogin(loginform){
+    // console.log(this.username,this.password);
+    // console.log(loginform);
+    console.log(loginform.value);
   }
 
 }
