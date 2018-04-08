@@ -1,5 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {FlexLayoutModule} from '@angular/flex-layout';
 import { NgModule } from "@angular/core";
 
 import { RouterModule, Routes } from "@angular/router";
@@ -25,6 +26,10 @@ var routes: Routes = [
     path: "admin",
     loadChildren: "app/attendance/admin/admin.module#AdminModule"
   },
+  {
+    path: "user",
+    loadChildren: "app/attendance/user/user.module#UserModule"
+  },
   { path: "user-dashboard", component: UserDashboardComponent },
   { path: "**", redirectTo: "/", pathMatch: "full" } // not found handler
 ];
@@ -46,6 +51,7 @@ var routes: Routes = [
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FlexLayoutModule,
     SharedModule,
     RouterModule.forRoot(routes)
     //  AdminModule  //Eager loading of feature modules

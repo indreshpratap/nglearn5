@@ -3,6 +3,9 @@ h1 {
     color: green;
 }
 
+body {
+    font-size: .9em;
+}
 .notes {
     padding:5px;
 }

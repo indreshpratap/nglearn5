@@ -1,0 +1,42 @@
+<form [formGroup]="regForm">
+  <div fxLayout="row">
+    <div>
+      <label for="">Name</label>
+      <input type="text" formControlName="name">
+    </div>
+    <div>
+      <label for="">Email</label>
+      <input type="text" formControlName="email">
+    </div>
+    <div>
+      <label for="">Phone</label>
+      <input type="text" formControlName="phone">
+    </div>
+    <div>
+      <label for="">Gender</label>
+      <select name="" id="" formControlName="gender">
+        <option></option>
+        <option>Male</option>
+        <option>Female</option>
+      </select>
+    </div>
+
+    <div>
+      <button type="submit">Save</button>
+      <button (click)="regForm.disable()">Disable</button>
+      <button (click)="regForm.enable()">Enable</button>
+    </div>
+
+  </div>
+
+</form>
+Valid: {{regForm.valid}}
+
+<pre>
+  {{regForm.value|json}}
+
+
+  Error
+  {{regForm.get('email').errors|json}}
+
+</pre>
