@@ -20,7 +20,54 @@
         <option>Female</option>
       </select>
     </div>
+    <div formGroupName="comm_address">
+      <b>Communication Address</b>
+      <div>
+        <label for="">Line 1</label>
+        <input type="text" formControlName="line1">
+      </div>
+      <div>
+        <label for="">Line 2</label>
+        <input type="text" formControlName="line2">
+      </div>
+      <div>
+        <label for="">City</label>
+        <input type="text" formControlName="city">
+      </div>
+      <div>
+        <label for="">State</label>
+        <input type="text" formControlName="state">
+      </div>
+      <div>
+        <label for="">Pincode</label>
+        <input type="text" formControlName="pin">
+        <span *ngIf="regForm.get('comm_address').get('pin')?.errors?.pincode">Invalid Pincode</span>
+      </div>
+    </div>
 
+    <div formGroupName="permanent_address">
+      <b>Permanent Address</b>
+      <div>
+        <label for="">Line1</label>
+        <input type="text" formControlName="line1">
+      </div>
+      <div>
+        <label for="">Line2</label>
+        <input type="text" formControlName="line2">
+      </div>
+      <div>
+        <label for="">City</label>
+        <input type="text" formControlName="city">
+      </div>
+      <div>
+        <label for="">State</label>
+        <input type="text" formControlName="state">
+      </div>
+      <div>
+        <label for="">Pincode</label>
+        <input type="text" formControlName="pin">
+      </div>
+    </div>
     <div>
       <button type="submit">Save</button>
       <button (click)="regForm.disable()">Disable</button>
@@ -37,6 +84,6 @@ Valid: {{regForm.valid}}
 
 
   Error
-  {{regForm.get('email').errors|json}}
+  {{regForm.get('comm_address').get("pin").errors|json}}
 
 </pre>
