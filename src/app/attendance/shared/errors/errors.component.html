@@ -1,0 +1,9 @@
+<div *ngIf="control.errors" class="field-errors">
+  <span *ngIf="control.errors['required']">{{label}} Required</span>
+  <span *ngIf="control.errors['pincode']">{{label}} invaild pincode</span>
+  <span *ngIf="control.errors['minlengh']">{{label}} minlength error</span>
+  <span *ngIf="control.errors['pattern']">{{label}} pattern mismatched</span>
+  <span *ngIf="control.errors['mobile']">{{label}} not a valid mobile</span>
+</div>
+
+

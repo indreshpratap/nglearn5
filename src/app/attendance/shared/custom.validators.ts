@@ -8,3 +8,12 @@ export function pincode(ctrl:FormControl){
     }
 
 }
+
+export function mobile(ctrl:FormControl){
+    if(ctrl.value && (/^\d{10}$/.test(ctrl.value)===false)){
+    return {"mobile":true}; // error type of mobile
+    }else {
+        return null;// no error
+    }
+
+}

@@ -5,7 +5,7 @@ import {
   Validators,
   FormBuilder
 } from "@angular/forms";
-import { pincode } from "../../shared/custom.validators";
+import { pincode, mobile } from "../../shared/custom.validators";
 
 @Component({
   selector: "app-usr-registration",
@@ -20,7 +20,7 @@ export class UsrRegistrationComponent implements OnInit {
     this.regForm = this.fb.group({
       name: ["Indresh", [Validators.required]],
       email: [, [Validators.required, Validators.minLength(5)]],
-      phone: [],
+      phone: [, [mobile]],
       gender: [],
       comm_address: this.fb.group({
         line1: [, [Validators.required]],
@@ -29,13 +29,7 @@ export class UsrRegistrationComponent implements OnInit {
         state: [, [Validators.required]],
         pin: [, [Validators.required, pincode]]
       }),
-      permanent_address: this.fb.group({
-        line1: [, [Validators.required]],
-        line2: [],
-        city: [, [Validators.required]],
-        state: [, [Validators.required]],
-        pin: [, [Validators.required, pincode]]
-      })
+      same_addr: [true]
     });
     /*
     this.regForm = new FormGroup({
@@ -60,5 +54,52 @@ export class UsrRegistrationComponent implements OnInit {
 
     });
     */
+  }
+
+  addAddress() {
+    this.regForm.addControl(
+      "permanent_address",
+      this.fb.group({
+        line1: [, [Validators.required]],
+        line2: [],
+        city: [, [Validators.required]],
+        state: [, [Validators.required]],
+        pin: [, [Validators.required, pincode]]
+      })
+    );
+  }
+
+  removeAddress() {
+    this.regForm.removeControl("permanent_address");
+  }
+  toggleAddr() {
+    if (this.regForm.value.same_addr) {
+      this.removeAddress();
+    } else {
+      this.addAddress();
+    }
+  }
+
+  setValue() {
+    this.regForm.setValue({
+      name: "fdsf",
+      email: "fdsfsfdf",
+      phone: "999999999",
+      gender: "Male",
+      comm_address: {
+        line1: "fsdfsd",
+        line2: "dfs",
+        city: "",
+        state: "",
+        pin: ""
+      },
+      same_addr: true
+    });
+  }
+  patchValue(){
+    this.regForm.patchValue({
+      phone:"9953093009",
+      name:"Indresh "
+    });
   }
 }

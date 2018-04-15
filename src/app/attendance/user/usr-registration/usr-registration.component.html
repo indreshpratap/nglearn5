@@ -3,14 +3,17 @@
     <div>
       <label for="">Name</label>
       <input type="text" formControlName="name">
+      <app-errors [control]="regForm.get('name')"></app-errors>
     </div>
     <div>
       <label for="">Email</label>
       <input type="text" formControlName="email">
+      <app-errors [control]="regForm.get('email')"></app-errors>
     </div>
     <div>
       <label for="">Phone</label>
       <input type="text" formControlName="phone">
+      <app-errors [control]="regForm.get('phone')" label="Phone"></app-errors>
     </div>
     <div>
       <label for="">Gender</label>
@@ -19,59 +22,74 @@
         <option>Male</option>
         <option>Female</option>
       </select>
+      <app-errors [control]="regForm.get('gender')"></app-errors>
     </div>
     <div formGroupName="comm_address">
       <b>Communication Address</b>
       <div>
         <label for="">Line 1</label>
         <input type="text" formControlName="line1">
+        <app-errors [control]="regForm.get('comm_address').get('line1')" label="Line 1"></app-errors>
       </div>
       <div>
         <label for="">Line 2</label>
         <input type="text" formControlName="line2">
+        <app-errors [control]="regForm.get('comm_address').get('line2')"></app-errors>
       </div>
       <div>
         <label for="">City</label>
         <input type="text" formControlName="city">
+        <app-errors [control]="regForm.get('comm_address').get('city')"></app-errors>
       </div>
       <div>
         <label for="">State</label>
         <input type="text" formControlName="state">
+        <app-errors [control]="regForm.get('comm_address').get('state')" label="Line 1"></app-errors>
       </div>
       <div>
         <label for="">Pincode</label>
         <input type="text" formControlName="pin">
-        <span *ngIf="regForm.get('comm_address').get('pin')?.errors?.pincode">Invalid Pincode</span>
+        <app-errors [control]="regForm.get('comm_address').get('pin')"></app-errors>
       </div>
     </div>
-
-    <div formGroupName="permanent_address">
+<input type="checkbox" formControlName="same_addr" (change)="toggleAddr()">
+    <div formGroupName="permanent_address" *ngIf="regForm.get('permanent_address')">
       <b>Permanent Address</b>
       <div>
         <label for="">Line1</label>
         <input type="text" formControlName="line1">
+        <app-errors [control]="regForm.get('permanent_address').get('line1')"></app-errors>
       </div>
       <div>
         <label for="">Line2</label>
         <input type="text" formControlName="line2">
+        <app-errors [control]="regForm.get('permanent_address').get('line2')"></app-errors>
       </div>
       <div>
         <label for="">City</label>
         <input type="text" formControlName="city">
+        <app-errors [control]="regForm.get('permanent_address').get('city')"></app-errors>
       </div>
       <div>
         <label for="">State</label>
         <input type="text" formControlName="state">
+        <app-errors [control]="regForm.get('permanent_address').get('state')"></app-errors>
       </div>
       <div>
         <label for="">Pincode</label>
         <input type="text" formControlName="pin">
+        <app-errors [control]="regForm.get('permanent_address').get('pin')"></app-errors>
       </div>
     </div>
     <div>
       <button type="submit">Save</button>
       <button (click)="regForm.disable()">Disable</button>
       <button (click)="regForm.enable()">Enable</button>
+
+      <button (click)="regForm.get('permanent_address').disable()">Address Disable</button>
+      <button (click)="regForm.get('permanent_address').enable()">Address Enable</button>
+      <button (click)="setValue()">Set Value</button>
+      <button (click)="patchValue()">Patch Value</button>
     </div>
 
   </div>
