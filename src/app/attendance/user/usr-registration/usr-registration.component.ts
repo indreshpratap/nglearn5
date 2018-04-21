@@ -6,7 +6,7 @@ import {
   FormBuilder
 } from "@angular/forms";
 import { pincode, mobile } from "../../shared/custom.validators";
-
+declare var jQuery:any; // to get jquery ref object
 @Component({
   selector: "app-usr-registration",
   templateUrl: "./usr-registration.component.html",
@@ -17,6 +17,7 @@ export class UsrRegistrationComponent implements OnInit {
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
+    jQuery('body').addClass('added-by-jquery');
     this.regForm = this.fb.group({
       name: ["Indresh", [Validators.required]],
       email: [, [Validators.required, Validators.minLength(5)]],

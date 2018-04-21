@@ -1,8 +1,14 @@
+<mat-card>
+
 <form [formGroup]="regForm">
-  <div fxLayout="row">
+  <div fxLayout="row wrap" fxLayout.lt-md="column" fxLayoutGap="10px">
+
     <div>
-      <label for="">Name</label>
-      <input type="text" formControlName="name">
+      <!-- <label for="">Name</label>
+      <input type="text" formControlName="name"> -->
+      <mat-form-field>
+        <input matInput placeholder="Name" formControlName="name">
+      </mat-form-field>
       <app-errors [control]="regForm.get('name')"></app-errors>
     </div>
     <div>
@@ -24,8 +30,9 @@
       </select>
       <app-errors [control]="regForm.get('gender')"></app-errors>
     </div>
-    <div formGroupName="comm_address">
+    <div formGroupName="comm_address" fxFlex="100">
       <b>Communication Address</b>
+      <div fxLayout="row wrap" fxLayoutGap="10px">
       <div>
         <label for="">Line 1</label>
         <input type="text" formControlName="line1">
@@ -51,8 +58,10 @@
         <input type="text" formControlName="pin">
         <app-errors [control]="regForm.get('comm_address').get('pin')"></app-errors>
       </div>
+      </div>
     </div>
-<input type="checkbox" formControlName="same_addr" (change)="toggleAddr()">
+    <mat-checkbox formControlName="same_addr" (change)="toggleAddr()"></mat-checkbox>
+   
     <div formGroupName="permanent_address" *ngIf="regForm.get('permanent_address')">
       <b>Permanent Address</b>
       <div>
@@ -82,7 +91,7 @@
       </div>
     </div>
     <div>
-      <button type="submit">Save</button>
+      <button mat-raised-button color="primary" type="submit">Save</button>
       <button (click)="regForm.disable()">Disable</button>
       <button (click)="regForm.enable()">Enable</button>
 
@@ -95,6 +104,7 @@
   </div>
 
 </form>
+</mat-card>
 Valid: {{regForm.valid}}
 
 <pre>

@@ -1,6 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {FlexLayoutModule} from '@angular/flex-layout';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+
 import { NgModule } from "@angular/core";
 
 import { RouterModule, Routes } from "@angular/router";
@@ -19,18 +19,25 @@ import { UserDashboardComponent } from "./attendance/user-dashboard/user-dashboa
 import { AttendanceAppComponent } from "./attendance/app/app.component";
 import { AdminModule } from "./attendance/admin/admin.module";
 import { SharedModule } from "./attendance/shared/shared.module";
+import { SecureComponent } from "./attendance/secure/secure.component";
 
 var routes: Routes = [
-  { path: "", component: LoginComponent },
+  { path: "login", component: LoginComponent },
   {
-    path: "admin",
-    loadChildren: "app/attendance/admin/admin.module#AdminModule"
+    path: "",
+    component: SecureComponent,
+    children: [
+      {
+        path: "admin",
+        loadChildren: "app/attendance/admin/admin.module#AdminModule"
+      },
+      {
+        path: "user",
+        loadChildren: "app/attendance/user/user.module#UserModule"
+      },
+      { path: "user-dashboard", component: UserDashboardComponent }
+    ]
   },
-  {
-    path: "user",
-    loadChildren: "app/attendance/user/user.module#UserModule"
-  },
-  { path: "user-dashboard", component: UserDashboardComponent },
   { path: "**", redirectTo: "/", pathMatch: "full" } // not found handler
 ];
 
@@ -46,12 +53,13 @@ var routes: Routes = [
     NoteDetailsComponent,
     LoginComponent,
     UserDashboardComponent,
-    AttendanceAppComponent
+    AttendanceAppComponent,
+    SecureComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    FlexLayoutModule,
+  
     SharedModule,
     RouterModule.forRoot(routes)
     //  AdminModule  //Eager loading of feature modules
@@ -61,8 +69,6 @@ var routes: Routes = [
 })
 export class AppModule {}
 
-export var test="";
+export var test = "";
 
-export function hello(){
-
-}
+export function hello() {}
