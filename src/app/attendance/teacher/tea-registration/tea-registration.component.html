@@ -1,0 +1,42 @@
+<mat-card>
+  <form [formGroup]="form">
+    
+    <div fxLayout="row" fxLayoutGap="10px">
+      <mat-form-field fxFlex="20">
+        <input type="text" matInput placeholder="Teacher Name" formControlName="teacherName">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="text" matInput placeholder="Phone" formControlName="phone">
+      </mat-form-field>
+      <mat-form-field fxFlex="20">
+        <input type="text" matInput placeholder="Email" formControlName="email">
+      </mat-form-field>
+    </div>
+    <div formArrayName="experiance">
+      <button mat-raised-button color="primary" (click)="addExperiance()">ADD</button>
+      <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start center" *ngFor="let exp of expFormArray.controls;let indx=index;" [formGroupName]="indx">
+        <mat-form-field>
+          <input type="text" matInput placeholder="Subject" formControlName="subject">
+        </mat-form-field>
+        <mat-form-field>
+          <input type="number" matInput placeholder="Year" formControlName="year">
+        </mat-form-field>
+        <mat-form-field>
+          <input type="number" matInput placeholder="Month" formControlName="month">
+        </mat-form-field>
+        <div>
+          <button mat-raised-button color="warn" (click)="removeExp(indx)" [disabled]="expFormArray.length===1">Remove</button>
+        </div>
+      </div>
+    </div>
+    <div>
+      <b>Image</b>
+      <input type="file" (change)="processImage($event)" >
+      <img [src]="image" *ngIf="image" width="200" height="200">
+    </div>
+
+  </form>
+  <pre>
+    {{form.value|json}}
+  </pre>
+</mat-card>

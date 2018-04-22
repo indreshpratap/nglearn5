@@ -35,10 +35,14 @@ var routes: Routes = [
         path: "user",
         loadChildren: "app/attendance/user/user.module#UserModule"
       },
+      {
+        path: "teacher",
+        loadChildren: "app/attendance/teacher/teacher.module#TeacherModule"
+      },
       { path: "user-dashboard", component: UserDashboardComponent }
     ]
   },
-  { path: "**", redirectTo: "/", pathMatch: "full" } // not found handler
+  { path: "**", redirectTo: "", pathMatch: "full" } // not found handler
 ];
 
 @NgModule({
