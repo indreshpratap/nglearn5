@@ -20,6 +20,7 @@ import { AttendanceAppComponent } from "./attendance/app/app.component";
 import { AdminModule } from "./attendance/admin/admin.module";
 import { SharedModule } from "./attendance/shared/shared.module";
 import { SecureComponent } from "./attendance/secure/secure.component";
+import { ObservablesComponent } from './examples/observables/observables.component';
 
 var routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -58,7 +59,8 @@ var routes: Routes = [
     LoginComponent,
     UserDashboardComponent,
     AttendanceAppComponent,
-    SecureComponent
+    SecureComponent,
+    ObservablesComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +71,7 @@ var routes: Routes = [
     //  AdminModule  //Eager loading of feature modules
   ],
   providers: [],
-  bootstrap: [AttendanceAppComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
 
