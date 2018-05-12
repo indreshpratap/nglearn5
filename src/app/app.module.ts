@@ -71,7 +71,7 @@ var routes: Routes = [
     //  AdminModule  //Eager loading of feature modules
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AttendanceAppComponent]
 })
 export class AppModule {}
 

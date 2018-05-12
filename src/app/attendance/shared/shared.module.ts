@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { HighlightDirective } from "../../highlight.directive";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import {HttpClientModule} from '@angular/common/http';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { CalendarModule } from "primeng/calendar";
 import { InputTextModule } from "primeng/inputtext";
@@ -20,6 +21,7 @@ import { MatSelectModule } from "@angular/material/select";
 
 import { MatCardModule } from "@angular/material/card";
 import { MatExpansionModule } from "@angular/material/expansion";
+import { AdminService } from "./admin.service";
 
 const MATERIAL = [
   MatButtonModule,
@@ -33,7 +35,7 @@ const MATERIAL = [
   MatExpansionModule
 ];
 const PRIMENG = [CalendarModule, InputTextModule, CardModule, ButtonModule];
-const NG_IMP_EXP = [CommonModule, FormsModule, ReactiveFormsModule,FlexLayoutModule];
+const NG_IMP_EXP = [CommonModule, FormsModule, ReactiveFormsModule,FlexLayoutModule,HttpClientModule];
 
 @NgModule({
   imports: [...NG_IMP_EXP, ...PRIMENG, ...MATERIAL],
@@ -44,6 +46,7 @@ const NG_IMP_EXP = [CommonModule, FormsModule, ReactiveFormsModule,FlexLayoutMod
     ...NG_IMP_EXP,
     ...PRIMENG,
     ...MATERIAL
-  ]
+  ],
+  providers:[AdminService]
 })
 export class SharedModule {}

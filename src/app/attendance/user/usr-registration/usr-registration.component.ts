@@ -6,6 +6,7 @@ import {
   FormBuilder
 } from "@angular/forms";
 import { pincode, mobile } from "../../shared/custom.validators";
+import { AdminService } from "../../shared/admin.service";
 declare var jQuery:any; // to get jquery ref object
 @Component({
   selector: "app-usr-registration",
@@ -14,9 +15,18 @@ declare var jQuery:any; // to get jquery ref object
 })
 export class UsrRegistrationComponent implements OnInit {
   regForm: FormGroup;
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder,private adminService:AdminService) {}
+
+
+loadStudents(){
+  console.log("Fetching students");
+  this.adminService.fetchStudentsAll().subscribe(data=>{
+    console.log("Received the data", data);
+  })
+}
 
   ngOnInit() {
+    this.loadStudents();
     jQuery('body').addClass('added-by-jquery');
     this.regForm = this.fb.group({
       name: ["Indresh", [Validators.required]],
@@ -102,5 +112,12 @@ export class UsrRegistrationComponent implements OnInit {
       phone:"9953093009",
       name:"Indresh "
     });
+  }
+
+
+  save(){
+    if(this.regForm.valid){
+      this.adminService.registerStudent(this.regForm.value).subscribe(res=>console.log(res));
+    }
   }
 }

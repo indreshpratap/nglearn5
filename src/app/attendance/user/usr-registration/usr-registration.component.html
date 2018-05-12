@@ -89,9 +89,9 @@
         <input type="text" formControlName="pin">
         <app-errors [control]="regForm.get('permanent_address').get('pin')"></app-errors>
       </div>
-    </div>
+    </div> 
     <div>
-      <button mat-raised-button color="primary" type="submit">Save</button>
+      <button mat-raised-button color="primary" type="submit" (click)="save()">Save</button>
       <button (click)="regForm.disable()">Disable</button>
       <button (click)="regForm.enable()">Enable</button>
 
