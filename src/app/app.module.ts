@@ -21,6 +21,7 @@ import { AdminModule } from "./attendance/admin/admin.module";
 import { SharedModule } from "./attendance/shared/shared.module";
 import { SecureComponent } from "./attendance/secure/secure.component";
 import { ObservablesComponent } from './examples/observables/observables.component';
+import { FooterComponent } from "./footer.component";
 
 var routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -60,7 +61,8 @@ var routes: Routes = [
     UserDashboardComponent,
     AttendanceAppComponent,
     SecureComponent,
-    ObservablesComponent
+    ObservablesComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

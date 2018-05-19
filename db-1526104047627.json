@@ -1,0 +1,24 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "name": "Indresh"
+    },
+    {
+      "name": "Indresh",
+      "email": "test@gmail.com",
+      "phone": "3434343343",
+      "gender": "Male",
+      "comm_address": {
+        "line1": "new delhi",
+        "line2": "noida",
+        "city": "noida",
+        "state": "up",
+        "pin": "201301"
+      },
+      "same_addr": true,
+      "id": 2
+    }
+  ],
+  "teachers": []
+}

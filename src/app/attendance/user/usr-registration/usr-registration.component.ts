@@ -20,8 +20,8 @@ export class UsrRegistrationComponent implements OnInit {
 
 loadStudents(){
   console.log("Fetching students");
-  this.adminService.fetchStudentsAll().subscribe(data=>{
-    console.log("Received the data", data);
+  this.adminService.fetchStudentsAll().subscribe(res=>{
+    console.log("Received the data", res.status);
   })
 }
 
