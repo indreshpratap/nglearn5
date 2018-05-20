@@ -22,23 +22,25 @@ import { SharedModule } from "./attendance/shared/shared.module";
 import { SecureComponent } from "./attendance/secure/secure.component";
 import { ObservablesComponent } from './examples/observables/observables.component';
 import { FooterComponent } from "./footer.component";
+import { AuthGaurd } from "./attendance/shared/gaurds/auth.gaurd";
 
 var routes: Routes = [
   { path: "login", component: LoginComponent },
   {
     path: "",
     component: SecureComponent,
+   
     children: [
       {
         path: "admin",
         loadChildren: "app/attendance/admin/admin.module#AdminModule"
       },
       {
-        path: "user",
+        path: "user", canActivate:[AuthGaurd],canActivateChild:[AuthGaurd],
         loadChildren: "app/attendance/user/user.module#UserModule"
       },
       {
-        path: "teacher",
+        path: "teacher", canActivate:[AuthGaurd],
         loadChildren: "app/attendance/teacher/teacher.module#TeacherModule"
       },
       { path: "user-dashboard", component: UserDashboardComponent }

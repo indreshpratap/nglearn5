@@ -24,6 +24,7 @@ import { MatExpansionModule } from "@angular/material/expansion";
 import { AdminService } from "./admin.service";
 import { RestService } from "./rest.service";
 import {AuthInterceptor} from './auth-intercepter';
+import { AuthGaurd } from "./gaurds/auth.gaurd";
 const MATERIAL = [
   MatButtonModule,
   MatCheckboxModule,
@@ -52,6 +53,6 @@ export const httpInterceptorProviders = [
     ...PRIMENG,
     ...MATERIAL
   ],
-  providers:[AdminService,RestService,httpInterceptorProviders]
+  providers:[AdminService,RestService,httpInterceptorProviders,AuthGaurd]
 })
 export class SharedModule {}

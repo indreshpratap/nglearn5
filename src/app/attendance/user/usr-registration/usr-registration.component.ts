@@ -15,13 +15,20 @@ declare var jQuery:any; // to get jquery ref object
 })
 export class UsrRegistrationComponent implements OnInit {
   regForm: FormGroup;
+inprogess=false;
   constructor(private fb: FormBuilder,private adminService:AdminService) {}
 
 
 loadStudents(){
   console.log("Fetching students");
+  this.inprogess = true;
   this.adminService.fetchStudentsAll().subscribe(res=>{
     console.log("Received the data", res.status);
+   if(res.data){
+
+   }
+  },err=>{},()=>{
+    this.inprogess = false;
   })
 }
 
