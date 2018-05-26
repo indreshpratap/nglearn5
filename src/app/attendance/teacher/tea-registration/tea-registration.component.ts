@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, FormArray, Validators } from "@angular/forms";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-tea-registration",
@@ -9,9 +10,23 @@ import { FormGroup, FormBuilder, FormArray, Validators } from "@angular/forms";
 export class TeaRegistrationComponent implements OnInit {
   form: FormGroup;
   image;
-  constructor(private fb: FormBuilder) {}
+
+  items=[];
+  constructor(private fb: FormBuilder,private route:ActivatedRoute) {
+    this.items=[
+      {label:'fdsfsf',id:1},
+      {label:'fdsfsf',id:12},
+      {label:'fdsfsf',id:13},
+      {label:'fdsfsf',id:14},
+      {label:'fdsfsf',id:15},
+      {label:'fdsfsf',id:16},
+    ]
+  }
 
   ngOnInit() {
+    console.log(this.route.snapshot.data);
+
+
     this.form = this.fb.group({
       teacherName: [],
       phone: [],

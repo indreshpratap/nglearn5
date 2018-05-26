@@ -39,4 +39,11 @@
   <pre>
     {{form.value|json}}
   </pre>
+
+  <div><a routerLink="/teacher/edit/1">Edit 1</a></div>
+
+
+  <h3>Dynamic binding of url parameters</h3>
+
+  <div *ngFor="let itm of items"><a [routerLink]="['/teacher/edit',itm.id]">{{itm.label}} - {{itm.id}}</a></div>
 </mat-card>
